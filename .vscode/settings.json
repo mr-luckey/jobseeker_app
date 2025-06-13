@@ -1,0 +1,22 @@
+{
+  "files.exclude": {
+    ".dart_tool": true,
+    ".flutter-plugins": true,
+    ".flutter-plugins-dependencies": true,
+    ".git": true,
+    ".gitignore": true,
+    ".idea": true,
+    ".metadata": true,
+    "README.md": true,
+    "analysis_options.yaml": true,
+    "build": true,
+    "ios": true,
+    "jobseeker_app.iml": true,
+    "linux": true,
+    "macos": true,
+    "pubspec.lock": true,
+    "web": true,
+    "windows": true,
+    ".vscode": true
+  }
+}

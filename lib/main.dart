@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jobseeker_app/Constants/theme.dart';
+import 'package:jobseeker_app/UI/Splash_Screen/splash.dart';
+// import 'package:your_app/Constants/theme.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +12,12 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp(
+      themeMode: ThemeMode.system,
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      home: SplashScreen(),
     );
   }
 }
