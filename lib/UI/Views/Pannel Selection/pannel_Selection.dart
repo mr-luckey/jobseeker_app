@@ -3,14 +3,14 @@ import 'package:get/get.dart';
 import 'package:jobseeker_app/Constants/colors.dart';
 import 'package:jobseeker_app/UI/Widgets/Buttons/Button.dart';
 
-class SelectionScreen extends StatefulWidget {
-  const SelectionScreen({Key? key}) : super(key: key);
+class PannelSelection extends StatefulWidget {
+  const PannelSelection({Key? key}) : super(key: key);
 
   @override
-  State<SelectionScreen> createState() => _SelectionScreenState();
+  State<PannelSelection> createState() => _PannelSelectionState();
 }
 
-class _SelectionScreenState extends State<SelectionScreen> {
+class _PannelSelectionState extends State<PannelSelection> {
   int? selectedIndex;
 
   @override
@@ -31,37 +31,37 @@ class _SelectionScreenState extends State<SelectionScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
-                    children: [
-                      Icon(Icons.diamond,
-                          color: Colors.black, size: width * 0.07),
-                      SizedBox(width: 8),
-                      Text(
-                        'workscout',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: width * 0.055,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ],
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Row(
-                      children: [
-                        Text(
-                          'Skip',
-                          style: TextStyle(
-                            color: Colors.grey[700],
-                            fontSize: width * 0.043,
-                          ),
-                        ),
-                        Icon(Icons.arrow_forward,
-                            color: Colors.grey[700], size: width * 0.045),
-                      ],
-                    ),
-                  ),
+                  // Row(
+                  //   children: [
+                  //     Icon(Icons.diamond,
+                  //         color: Colors.black, size: width * 0.07),
+                  //     SizedBox(width: 8),
+                  //     Text(
+                  //       'workscout',
+                  //       style: TextStyle(
+                  //         fontWeight: FontWeight.bold,
+                  //         fontSize: width * 0.055,
+                  //         color: Colors.black,
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
+                  // TextButton(
+                  //   onPressed: () {},
+                  //   child: Row(
+                  //     children: [
+                  //       Text(
+                  //         'Skip',
+                  //         style: TextStyle(
+                  //           color: Colors.grey[700],
+                  //           fontSize: width * 0.043,
+                  //         ),
+                  //       ),
+                  //       Icon(Icons.arrow_forward,
+                  //           color: Colors.grey[700], size: width * 0.045),
+                  //     ],
+                  //   ),
+                  // ),
                 ],
               ),
               SizedBox(height: height * 0.04),
@@ -77,58 +77,39 @@ class _SelectionScreenState extends State<SelectionScreen> {
               _buildOptionCard(
                 context,
                 index: 0,
-                title: 'Yes, Actively looking',
+                title: 'I am looking for Job',
                 description:
-                    'Recive exclusive job invites and get contracted by employers',
+                    'Looking for job opportunities Internships , PartTime or FullTime Job ',
                 selected: selectedIndex == 0,
               ),
               SizedBox(height: height * 0.02),
               _buildOptionCard(
                 context,
                 index: 1,
-                title: 'I\'m Open Job for seeking',
+                title: 'I\'m Hiring',
                 description:
-                    'Choose this to occasionally receive exclusive job invites.',
+                    'A company looking for talent to 10x your business ',
                 selected: selectedIndex == 1,
               ),
               const Spacer(),
               TIconBtn(
-                ontap: () {
-                  Get.toNamed('/profesionalInfo');
-                },
+                ontap: selectedIndex != null
+                    ? () {
+                        if (selectedIndex == 0) {
+                          // Navigate to job seeker path
+                          Get.toNamed('/SignUp');
+                        } else {
+                          // Navigate to employer path
+                          Get.toNamed('/companyLogin');
+                        }
+                      }
+                    : null,
                 title: 'Next',
                 height: height * 0.06,
                 width: width,
                 iconData: Icons.arrow_forward,
+                isEnabled: selectedIndex != null,
               ),
-              // SizedBox(
-              //   width: double.infinity,
-              //   height: height * 0.06,
-              //   child: ElevatedButton(
-              //     style: ElevatedButton.styleFrom(
-              //       backgroundColor: primaryColor,
-              //       shape: RoundedRectangleBorder(
-              //         borderRadius: BorderRadius.circular(6),
-              //       ),
-              //     ),
-              //     onPressed: selectedIndex != null ? () {} : null,
-              //     child: Row(
-              //       mainAxisAlignment: MainAxisAlignment.center,
-              //       children: [
-              //         Text(
-              //           'Next',
-              //           style: TextStyle(
-              //             color: Colors.white,
-              //             fontSize: width * 0.043,
-              //           ),
-              //         ),
-              //         SizedBox(width: 8),
-              //         Icon(Icons.arrow_forward,
-              //             color: Colors.white, size: width * 0.045),
-              //       ],
-              //     ),
-              //   ),
-              // ),
               SizedBox(height: height * 0.03),
             ],
           ),

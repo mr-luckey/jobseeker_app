@@ -40,39 +40,44 @@ class TIconBtn extends StatelessWidget {
   final title;
   final height;
   final width;
-  IconData iconData;
-  GestureTapCallback? ontap;
+  final IconData iconData;
+  final GestureTapCallback? ontap;
+  final bool isEnabled;
 
-  TIconBtn(
-      {super.key,
-      required this.title,
-      required this.height,
-      required this.width,
-      required this.ontap,
-      required this.iconData});
+  TIconBtn({
+    super.key,
+    required this.title,
+    required this.height,
+    required this.width,
+    required this.ontap,
+    required this.iconData,
+    this.isEnabled = true,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: ontap,
+      onTap: isEnabled ? ontap : null,
       child: Container(
         height: height,
         width: width,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5), color: primaryColor),
+          borderRadius: BorderRadius.circular(5),
+          color: isEnabled ? primaryColor : Colors.grey,
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               title,
-              style: btnStyle,
+              style: btnStyle.copyWith(
+                color: isEnabled ? Colors.white : Colors.white.withOpacity(0.7),
+              ),
             ),
-            SizedBox(
-              width: 5,
-            ),
+            SizedBox(width: 5),
             Icon(
               iconData,
-              color: Colors.white,
+              color: isEnabled ? Colors.white : Colors.white.withOpacity(0.7),
               size: 18,
             ),
           ],

@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
-import 'package:jobseeker_app/Constants/colors.dart';
 import 'package:jobseeker_app/Constants/fontSize.dart';
-import 'package:jobseeker_app/UI/Views/Registration_Success/success_screen.dart';
 import 'package:jobseeker_app/UI/Widgets/Buttons/Button.dart';
 import 'package:jobseeker_app/UI/Widgets/TextFields/TtextFields.dart';
 
-class CreateAccount extends StatelessWidget {
-  CreateAccount({super.key});
+class CompanyLogin extends StatelessWidget {
+  CompanyLogin({super.key});
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
-  final TextEditingController nameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +22,7 @@ class CreateAccount extends StatelessWidget {
                 child: Image.asset(
               'Assets/Images/Card.png',
               fit: BoxFit.fill,
+              // color: Colors.yellow,
             )),
             Column(
               children: [
@@ -37,14 +35,8 @@ class CreateAccount extends StatelessWidget {
                   style: TitleStyle,
                 ),
                 SizedBox(
-                  height: height * 0.2,
+                  height: height * 0.4,
                 ),
-                TsimpleField(
-                    controller: nameController,
-                    hintText: "Please enter your full name",
-                    heading: 'Full Name',
-                    height: height * .15,
-                    width: width * 0.9),
                 TsimpleField(
                     controller: emailController,
                     hintText: "Please enter your email",
@@ -59,11 +51,9 @@ class CreateAccount extends StatelessWidget {
                     width: width * .9),
                 TButton(
                     ontap: () {
-                      Get.to(SuccessScreen(
-                        userName: nameController.text,
-                      ));
+                      Get.toNamed('/CompanyInfo');
                     },
-                    Title: 'SignUp',
+                    Title: 'Login',
                     height: height * 0.062,
                     width: width * .8)
               ],

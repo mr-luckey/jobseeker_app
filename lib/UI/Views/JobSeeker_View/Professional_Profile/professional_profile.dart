@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jobseeker_app/Constants/fontSize.dart';
-import 'package:jobseeker_app/UI/Views/Registration_Success/success_screen.dart';
+import 'package:jobseeker_app/UI/Views/JobSeeker_View/Registration_Success/success_screen.dart';
 import 'package:jobseeker_app/UI/Widgets/Buttons/Button.dart';
 import 'package:jobseeker_app/UI/Widgets/TextFields/TtextFields.dart';
 
@@ -72,6 +72,7 @@ class ProfessionalProfileScreen extends StatelessWidget {
                   TIconBtn(
                       iconData: Icons.arrow_forward,
                       ontap: () {
+                        Get.toNamed('/uploadCv');
                         // Get.to(SuccessScreen(
                         //   userName: nameController.text,
                         // ));
